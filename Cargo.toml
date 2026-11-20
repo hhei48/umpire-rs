@@ -1,0 +1,25 @@
+[package]
+name = "umpire"
+version = "0.3.0"
+edition = "2021"
+description = "A blazingly fast competitive programming helper"
+license = "GPL-3.0-only"
+repository = "https://github.com/udontur/umpire"
+readme = "README.md"
+keywords = ["competitive-programming", "cli", "testing"]
+categories = ["command-line-utilities", "development-tools"]
+
+[[bin]]
+name = "um"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1.0.104"
+clap = { version = "4.5.61", features = ["derive"] }
+tempfile = "3.27.0"
+wait-timeout = "0.2.1"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
